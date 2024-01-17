@@ -1,1 +1,6 @@
 NAO ESQUECA DE SE INSCREVER NO CANAL
+DUVIDAS ERRORS DEIXA NA AREA DE COMENTARIOS DO YOUTUBE
+
+https://www.youtube.com/@cursosdeprogramacao
+
+
