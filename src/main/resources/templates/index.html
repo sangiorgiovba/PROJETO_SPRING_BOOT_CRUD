@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      th:rel="stylesheet"
+      th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} "
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Lista de produtos</h1>
+
+      <p th:text="| HOJE E  ${hoje} ">Hoje</p>
+
+      <table class="table table-bordered table-striped">
+        <thead   bgcolor="green" style="color:white" >
+          <tr>
+            <th >Controles</th>
+            <th>Id</th>
+            <th>Desc</th>
+            <th> Conferido</th>
+            <th>Data Cadastro</th>
+            <th>Data Atualizado</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr th:each="item : ${todoItems}" th:class="${item.complete} ? success : warning">
+            <td>
+                <div class="btn btn-group-sm" role="group">
+                    <a class="btn btn-warning" th:href="@{/edit/{id}(id=${item.id})}">Editar</a>
+                    <a class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}">Deletar</a>
+                </div>
+            </td>
+              <td th:text="${item.id}"> Produto id</td>
+              <td th:text="${item.description}"> Produto descricao</td>
+              <td th:text="${item.complete}"> Produtocompleto</td>
+              <td th:text="${item.createdDate}"> Data Cadastrado</td>
+              <td th:text="${item.modifiedDate}"> Produto atualizado</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><a class="btn btn-success" href="/create-todo">Cadastrar Produto</a></p>
+    </div>
+    <hr />
+<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+  </body>
+</html>
